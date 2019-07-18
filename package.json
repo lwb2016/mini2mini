@@ -1,0 +1,69 @@
+{
+  "name": "mini2mini",
+  "version": "1.0.3",
+  "description": "小程序转小程序",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "fix": "eslint --fix src",
+    "wxqq": "node bin/mini2mini wx ./test/wxapp qq ./test/qqapp",
+    "qqwx": "node bin/mini2mini qq ./test/qqapp wx ./test/wxapp",
+    "wxtt": "node bin/mini2mini wx ./test/wxapp tt ./test/ttapp",
+    "ttwx": "node bin/mini2mini tt ./test/ttapp wx ./test/wxapp"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
+  "bin": {
+    "wx2tt": "./bin/wx2tt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dream2023/wx2tt.git"
+  },
+  "keywords": [
+    "miniapp",
+    "微信小程序",
+    "小程序",
+    "头条小程序",
+    "头条"
+  ],
+  "author": "zhangchaojie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dream2023/wx2tt/issues"
+  },
+  "homepage": "https://github.com/dream2023/wx2tt#readme",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "chalk": "^2.4.1",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-remember": "^1.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-uglify": "^3.0.1",
+    "is-absolute": "^1.0.0",
+    "is-directory": "^0.3.1",
+    "make-dir": "^1.3.0",
+    "minimist": "^1.2.0",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.11.1",
+    "husky": "^1.3.1"
+  }
+}
