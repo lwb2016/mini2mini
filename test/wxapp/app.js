@@ -1,17 +1,31 @@
 //app.js
+import ui from './app/ui'
+import share from './app/share'
+const events = require('./utils/event_dispatcher')
+import api from './http/api'
+
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    //挂载Ui管理器
+    wx.ui = ui
+    //挂载分享管理器
+    wx.share = share
+    //挂载全局消息通知
+    wx.events = events
+    //挂载全局api服务
+    wx.api = api
+    //挂载打印信息
+    wx.log = function (...log) {
+      console.log(log)
+    }
+    //挂载消息提示
+    wx.toast = function (msg, icon = 'none') {
+      wx.showToast({
+        title: msg,
+        icon: icon,
+        duration: 1500,
+      });
+    }
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -20,20 +34,62 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
+              this.setUserInfo(res.userInfo)
+            },
+            fail: error => {
+              this.setUserInfo(null)
             }
           })
+        }else{
+          this.setUserInfo(null)
         }
+      }
+    })
+    wx.getSystemInfo({
+      success: (res) => {
+        this.globalData.statusBarHeight = res.statusBarHeight
       }
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    statusBarHeight: 0
+  },
+  setUserInfo(info) {
+    if (info) { //进行用户登录
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          if (res.code) {
+            // 发起登录的网络请求获取用户信息
+            // console.log(res.code)
+            wx.api.userService.loginByQQmini(res.code,info)
+              .then(data => {
+                this.setCurrentUserInfo(info)
+              }).catch(error=>{
+                // console.log(error)
+                // wx.toast("登录失败，请重试！")
+                this.setCurrentUserInfo(null)
+              })
+          } else {
+            // wx.toast("登录失败，请重试！")
+            this.setCurrentUserInfo(null)
+          }
+        }
+      })
+    } else {
+      this.setCurrentUserInfo(null)
+    }
+  },
+  //设置当前的用户信息
+  setCurrentUserInfo(info) {
+    //设置用户信息
+    this.globalData.userInfo = info
+    //没有用户信息退出登录
+    if(info==null){
+      wx.api.userService.logout()
+    }
+    // 发送全局通知
+    wx.events.post(wx.events.msgs.user_info, info)
   }
 })

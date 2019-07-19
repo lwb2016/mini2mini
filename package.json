@@ -18,7 +18,7 @@
     }
   },
   "bin": {
-    "wx2tt": "./bin/wx2tt"
+    "mini2mini": "./bin/mini2mini"
   },
   "repository": {
     "type": "git",

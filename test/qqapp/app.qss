@@ -1,4 +1,3 @@
-/**app.qss**/
 .container {
   height: 100%;
   display: flex;

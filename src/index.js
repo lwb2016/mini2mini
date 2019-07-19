@@ -9,7 +9,7 @@ const makeDir = require('make-dir')
 const argv = process.argv.slice(2)
 if (argv.length < 4) {
   utils.error(
-    '用法: wx2tt platform1 <path/to/wxapp> platform2 <path/to/ttapp>   [--watch] [--minify] [--minify-css] [--minify-js] [--minify-xml]'
+    '用法: mini2mini platform1 <path/to/wxapp> platform2 <path/to/ttapp>   [--watch] [--minify] [--minify-css] [--minify-js] [--minify-xml]'
   )
 }
 utils.log(argv)

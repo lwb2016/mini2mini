@@ -1,8 +1,5 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
+	"projectid": "1109528707_qq_gm",
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
@@ -11,14 +8,21 @@
 		"newFeature": true,
 		"autoAudits": false
 	},
+	"qqLibVersion": "1.4.7",
 	"compileType": "miniprogram",
-	"libVersion": "2.4.3",
-	"appid": "wxde96ea1e613753d7",
-	"projectname": "wxtest",
+	"createTime": 1562212467454,
+	"accessTime": 1562212467454,
+	"packOptions": {
+		"ignore": []
+	},
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
+	"qqappid": "1109528707",
+	"projectname": "gm",
+	"appid": "wxed62f21eb31b857d",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
