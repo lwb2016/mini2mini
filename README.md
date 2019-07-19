@@ -1,4 +1,4 @@
-# wx2tt
+# mini2mini
 
 小程序转换工具
 
