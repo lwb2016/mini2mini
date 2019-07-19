@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dream2023/wx2tt.git"
+    "url": "git+https://github.com/lwb2016/mini2mini.git"
   },
   "keywords": [
     "miniapp",
@@ -34,9 +34,9 @@
   "author": "zhangchaojie",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dream2023/wx2tt/issues"
+    "url": "https://github.com/lwb2016/mini2mini/issues"
   },
-  "homepage": "https://github.com/dream2023/wx2tt#readme",
+  "homepage": "https://github.com/lwb2016/mini2mini#readme",
   "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
