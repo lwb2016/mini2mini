@@ -10,7 +10,7 @@ npm i mini2mini -g
 
 ## 使用方法
 ```
-mini2mini <path/to/wxapp> <path/to/ttapp> [--watch] [--minify] [--minify-wxss] [--minify-js] [--minify-wxml]
+mini2mini wx <path/to/wxapp> qq <path/to/qqapp> [--watch] [--minify] [--minify-css] [--minify-js] [--minify-xml]
 ```
 
 ## 参数说明
@@ -41,3 +41,4 @@ mini2mini 的功能很简单，以微信小程序转换成qq小程序，他主�
 ## 注意事项
 
 **基于小程序之间的共同性
+感谢！参考：https://github.com/dream2023/wx2tt.git
