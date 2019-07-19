@@ -15,12 +15,12 @@ mini2mini wx <path/to/wxapp> qq <path/to/qqapp> [--watch] [--minify] [--minify-c
 
 ## 参数说明
 - path/to/wxapp 表示微信小程序目录
-- path/to/ttapp 表示头条小程序目录
+- path/to/qqapp 表示QQ小程序目录
 - --watch 表示监听模式运行
 - --minify 压缩所有能压缩的文件
-- --minify-wxss 仅压缩wxss文件
+- --minify-xss 仅压缩wxss文件
 - --minify-js 仅压缩js文件
-- --minify-wxml 仅压缩wxml文件
+- --minify-xml 仅压缩wxml文件
 
 
 ## 说明
